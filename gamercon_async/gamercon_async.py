@@ -74,3 +74,43 @@ class GameRCON:
 
         result = await self._send(2, cmd)
         return result
+
+class EvrimaRCON:
+    def __init__(self, host, port, password):
+        self.host = host
+        self.port = port
+        self.password = password
+        self.timeout = 30
+
+    async def connect(self):
+        try:
+            self.reader, self.writer = await asyncio.wait_for(asyncio.open_connection(self.host, self.port), timeout=self.timeout)
+
+            payload = bytes('\x01', 'utf-8') + self.password.encode() + bytes('\x00', 'utf-8')
+            self.writer.write(payload)
+            await self.writer.drain()
+
+            response = await asyncio.wait_for(self.reader.read(1024), timeout=self.timeout)
+            if "Accepted" not in str(response):
+                self.writer.close()
+                await self.writer.wait_closed()
+                return "Login failed"
+
+            return "Connected"
+        except asyncio.TimeoutError:
+            return "Connection timed out"
+        except asyncio.CancelledError:
+            return "Connection cancelled"
+        except Exception as e:
+            return f"Socket error: {e}"
+
+    async def send_command(self, command_bytes):
+        try:
+            self.writer.write(command_bytes)
+            await asyncio.ensure_future(self.writer.drain())
+
+            response = await asyncio.wait_for(self.reader.read(1024), timeout=self.timeout)
+            return response.decode()
+
+        except Exception as e:
+            return f"Error sending command: {e}"
