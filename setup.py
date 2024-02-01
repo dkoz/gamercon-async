@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='gamercon-async',
-    version='1.0.2',
+    version='1.0.4',
     packages=find_packages(),
     install_requires=[
         'asyncio',
@@ -14,5 +14,4 @@ setup(
     author='dkoz',
     author_email='koz@beskor.net',
     url='https://github.com/dkoz/gamercon-async',
-    license='MIT',
 )

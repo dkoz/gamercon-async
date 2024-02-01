@@ -5,6 +5,15 @@
  - List the key features of your package.
  - Explain what makes your package stand out.
 
+## Supported Games
+- Ark: Survival Ascended
+- The Isle: Evrima
+- Source Engine Games
+- Palworld
+- Path of Titans
+
+Mostly any game that supports source rcon will work with this protocol.
+
 ## Installation
 
  Install `gamercon-async` using pip:
@@ -16,7 +25,6 @@
 ## Requirements
  - Python 3.10+
  - asyncio
- - struct
 
 ## Usage
  Quick example on how to use source games.
