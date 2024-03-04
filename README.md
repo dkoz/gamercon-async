@@ -34,7 +34,7 @@ import asyncio
 from gamercon_async import GameRCON
 
 async def main():
-    client = GameRCON('host', 'port', 'password')
+    client = GameRCON('host', 'port', 'password', timeout=10)
     async with client as pot_client:
         response = await pot_client.send('your_command')
         print(response)
