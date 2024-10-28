@@ -2,7 +2,7 @@
  `gamercon-async` is an asynchronous Python rcon client tailored for managing and interacting with game servers such as Minecraft, Ark, and Palworld. This tool provides developers and server administrators with a powerful, non-blocking way to execute commands and handle server communications effectively.
 
 ## Version
-> v1.0.6
+> v1.0.7
 
 ## Protocols
  - GameRCON: This feature offers an asynchronous RCON protocol designed to connect to multiple servers simultaneously, enhancing the ability to manage and interact with game servers efficiently.
@@ -10,11 +10,14 @@
  - GameRCONBase64: An advanced version of the GameRCON feature, GameRCONBase64 employs an asynchronous Base64-encoded RCON protocol. This allows for secure and efficient connections to any number of servers, ensuring a robust method for server management and communication.
 
 ## Supported Games
- - Ark: Survival Ascended
- - The Isle: Evrima
+ - Minecraft
  - Source Engine Games
  - Palworld
  - Path of Titans
+ - Ark: Survival Evolved
+ - Ark: Survival Ascended
+ - The Isle: Evrima
+ - Source Engine Games
 
 Mostly any game that supports source rcon will work with this protocol.
 
@@ -27,8 +30,7 @@ Mostly any game that supports source rcon will work with this protocol.
  ```
 
 ## Requirements
- - Python 3.10+
- - asyncio
+ - Python 3.11+
 
 ## Usage
  Quick example on how to use source games.

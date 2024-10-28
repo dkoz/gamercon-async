@@ -2,12 +2,9 @@ from setuptools import setup, find_packages
 
 setup(
     name='gamercon-async',
-    version='1.0.6',
+    version='1.0.7',
     packages=find_packages(),
-    install_requires=[
-        'asyncio',
-    ],
-    python_requires='>=3.8',
+    python_requires='>=3.11',
     description='An async rcon protocol for video games.',
     long_description=open('README.md').read(),
     long_description_content_type='text/markdown',
