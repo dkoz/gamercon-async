@@ -58,11 +58,11 @@ async def main():
    rcon = EvrimaRCON('host', port, 'password')
    await rcon.connect()
    
-   save_response = await rcon.send_command(bytes('\x02', 'utf-8') + bytes('\x50', 'utf-8') + bytes('\x00', 'utf-8'))
+   save_response = await rcon.send_command(b'\x02' + b'\x50' + b'\x00')
    print(f"Save Server Response: {save_response}")
    
    announcement = "Hello, world!"
-   announce_response = await rcon.send_command(bytes('\x02', 'utf-8') + bytes('\x10', 'utf-8') + announcement.encode() + bytes('\x00', 'utf-8'))
+   announce_response = await rcon.send_command(b'\x02' + b'\x10' + announcement.encode() + b'\x00')
    print(f"Announcement Response: {announce_response}")
 
 asyncio.run(main())
